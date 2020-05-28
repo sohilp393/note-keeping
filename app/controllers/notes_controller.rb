@@ -2,6 +2,7 @@
 # It was generated with scaffold generator
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  layout "note"
 
   def index
     @notes = Note.all
