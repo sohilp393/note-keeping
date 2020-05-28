@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     sign_out: 'logout',
     sign_up: 'register' }
 
+  resources :notes do
+  end
+
   root to: 'pages#home'
 end
