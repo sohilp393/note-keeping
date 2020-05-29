@@ -1,0 +1,12 @@
+<div class="masthead clearfix">
+  <div class="inner">
+    <h3 class="masthead-brand">Kiprosh</h3>
+    <nav class="nav nav-masthead">
+      <%= link_to "Home", root_path, class: 'nav-link' %>
+      <%= link_to "About Me", pages_about_url, class: 'nav-link' %>
+      <%= link_to "Contact", pages_contact_url, class: 'nav-link' %>
+      <%= link_to "Notes", notes_path, class: 'nav-link' %>
+      <%= login_helper 'nav-link' %>
+    </nav>
+  </div>
+</div>
