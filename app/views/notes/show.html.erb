@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 blog-main">
 
-<p>
-  <strong>Title:</strong>
-  <%= @note.title %>
-</p>
+  <h2><%= @note.title %></h2>
 
-<p>
-  <strong>Body:</strong>
-  <%= @note.body %>
-</p>
+  <%= link_to 'Edit', edit_note_path(@note)  %>
 
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+  <p>
+    <%= @note.body %>
+  </p>
+
+</div>
