@@ -2,7 +2,7 @@
 # It was generated with scaffold generator
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  layout "note"
+  layout 'note'
 
   def index
     @notes = Note.all
@@ -21,7 +21,6 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user = current_user
-
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
