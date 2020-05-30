@@ -18,14 +18,7 @@
     <%= render 'shared/note_nav' %>
 
     <!-- start of note header -->
-    <div class="note-header">
-      <div class="container">
-        <h1 class="note-title">Notes</h1>
-        <p class="lead note-description">An example Note template built with Bootstrap.</p>
-        <%# link_to 'Write a New Note', new_note_path if logged_in?(:site_admin) %>
-        <%= link_to 'Write a New Note', new_note_path %>
-      </div>
-    </div>
+    <%= render 'shared/note_masthead' %>
     <!-- end of note header -->
 
     <div class="container">
@@ -38,12 +31,7 @@
       </div>
 
         <!-- start of footer -->
-        <footer class="note-footer">
-          <p>Note template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-          <p>
-            <a href="#">Back to top</a>
-          </p>
-        </footer>
+        <%= render 'shared/note_footer'%>
         <!-- end of footer -->
     </div>
   </body>
