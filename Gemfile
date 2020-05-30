@@ -37,7 +37,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rubocop', '~> 0.39.0'
 gem 'bootstrap', '~> 4.5'
-
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'popper_js', '~> 1.9', '>= 1.9.9'
+gem 'jquery-rails', '~> 4.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code
   # to stop execution and get a debugger console
