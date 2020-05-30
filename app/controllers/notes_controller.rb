@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   layout 'note'
 
   def index
-    @notes = Note.all
+    @notes = Note.page(params[:page]).per(5)
   end
 
   def show
