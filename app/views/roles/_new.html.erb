@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Add Users</h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  <div class="form-group">
+  	
+  <h2>Add a User </h2>
+  <%= form_with scope: :role, url: roles_path do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :role %><br>
+    <%= form.text_field :role %>
+  </p>
+
+  <p><%= form.hidden_field :note_id ,:value => params[:note] %></p>	
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
+  </div>
+</div>
