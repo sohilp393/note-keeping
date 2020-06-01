@@ -13,9 +13,7 @@ class RolesController < ApplicationController
     @role.user = User.where(name: role_params[:name]).first
     @role.note = Note.find(role_params[:note_id])
     @role.role = role_params[:role]
-    if @role.save!
-      redirect_to "/notes/#{role_params[:note_id]}"
-    end
+    redirect_to "/notes/#{role_params[:note_id]}" if @role.save!
   end
 
   private
