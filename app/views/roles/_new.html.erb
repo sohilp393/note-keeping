@@ -12,10 +12,10 @@
     <%= form.text_field :name %>
   </p>
   <p>
-    <%= form.label :role %><br>
-    <%= form.text_field :role %>
-  </p>
+    <%= form.select :role, options_for_select([["Select One", ""], "Contributor", "Reader"])%>
 
+    <%#select_tag "role", raw("<option>Contributor</option><option>Reader</option>")%>
+  </p>
   <p><%= form.hidden_field :note_id ,:value => params[:note] %></p>	
   <p>
     <%= form.submit %>
