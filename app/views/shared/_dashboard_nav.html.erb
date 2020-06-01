@@ -1,0 +1,16 @@
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <div class="navbar-brand col-md-2 col-lg-1 mr-0 px-3"><%= link_to "Home",root_path%></div>
+  <div class="navbar-brand col-md-2 col-lg-1 mr-0 px-3"><%= link_to "About",pages_about_url%></div>
+  <div class="navbar-brand col-md-2 col-lg-1 mr-0 px-3"><%= link_to "Contact",pages_contact_url%></div>
+  <div class="navbar-brand col-md-2 col-lg-1 mr-0 px-3"><%= link_to "Notes",notes_path%></div>
+  <div class="navbar-brand col-md-2 col-lg-1 mr-0 px-1"><%= link_to "Dashboard",dashboard_path%></div>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <%= login_helper 'nav-link'%>
+    </li>
+  </ul>
+  </nav>  
