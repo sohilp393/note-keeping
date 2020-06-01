@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :roles
   has_many :notes, through: :roles, dependent: :delete_all
 
-  validates :name, presence: true, length: { mininmum: 3, maximum: 50 }
-  validates :email, presence: true, length: { mininmum: 10, maximum: 50 }
+  validates :name, presence: true, length: { in: 3..20 }
+  validates :email, presence: true, length: { in:10..50 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
