@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'faker'
 
 RSpec.describe User, type: :model do
   describe 'Associations' do
@@ -23,23 +24,15 @@ RSpec.describe User, type: :model do
 
   describe '#first_name' do
     it 'returns the first_name of the user' do
-      user = User.new(
-        name: 'kiprosh test',
-        email: 'kiprosh@gmail.com',
-        password: 'abc12345')
-      user.save!
-      expect(user.first_name).to eq('kiprosh')
+      wick = FactoryGirl.create(:user, name: 'John Wick')
+      expect(wick.first_name).to eq('John')
     end
   end
 
   describe '#last_name' do
     it 'returns the last_name of the user' do
-      user = User.new(
-        name: 'kiprosh test',
-        email: 'kiprosh@gmail.com',
-        password: 'abc12345')
-      user.save!
-      expect(user.last_name).to eq('test')
+      wick = FactoryGirl.create(:user, name: 'John Wick')
+      expect(wick.last_name).to eq('Wick')
     end
   end
 end
