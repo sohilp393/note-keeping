@@ -12,5 +12,5 @@ class Note < ApplicationRecord
   has_many :roles
   has_many :users, through: :roles, dependent: :delete_all
 
-  validates :title, presence: true, length: { mininmum: 3, maximum: 50 }
+  validates :title, presence: true, length: { in: 3..50 }
 end
