@@ -13,7 +13,7 @@
       <% @allnotes_hash["Contributor"].each do |role| %>
         <tr>
           <td><%= role.note.title %></td>
-          <td><%= role.note.body %></td>
+          <td><%= truncate(role.note.body, length: 110) %></td>
           <td><%= role.note.user.name%></td>
           <td><%= link_to 'Show', role.note %>||
             <%= link_to 'Edit', edit_note_path(role.note) %>

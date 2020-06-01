@@ -13,7 +13,7 @@
       <% @allnotes_hash["Reader"].each do |role| %>
         <tr>
           <td><%= role.note.title %></td>
-          <td><%= role.note.body %></td>
+          <td><%= truncate(role.note.body, length: 125) %></td>
           <td><%= role.note.user.name%></td>
           <td><%= link_to 'Show', role.note %></td>
         </tr>

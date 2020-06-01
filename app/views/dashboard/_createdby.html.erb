@@ -12,7 +12,7 @@
       <% @allnotes_hash["Createdby"].each do |note| %>
         <tr>
           <td><%= note.title %></td>
-          <td><%= note.body %></td>
+          <td><%= truncate(note.body, length: 125) %></td>
           <td><%= link_to 'Show', note %>||
             <%= link_to 'Edit', edit_note_path(note) %>||
             <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }  %>
