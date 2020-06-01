@@ -41,6 +41,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'jquery-rails', '~> 4.4'
+gem 'shoulda-matchers', '~> 4.3'
 group :development, :test do
   # Call 'byebug' anywhere in the code
   # to stop execution and get a debugger console
@@ -63,6 +64,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails', '4.2.1'                       # can't update
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
