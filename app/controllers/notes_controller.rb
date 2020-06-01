@@ -1,7 +1,7 @@
 # Performs CRUD operation on notes table
 # It was generated with scaffold generator
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
   layout 'note'
 
   def index
@@ -55,7 +55,7 @@ class NotesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_note
+  def find_note
     @note = Note.find(params[:id])
   end
 
