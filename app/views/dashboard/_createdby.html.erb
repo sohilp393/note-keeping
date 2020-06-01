@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-md-4">
+      <h2>Created Notes</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+        <tr>
+         <th>Title</th>
+         <th>Body</th> 
+         <th>Action</th> 
+      </tr>
+      <% @allnotes_hash["Createdby"].each do |note| %>
+        <tr>
+          <td><%= note.title %></td>
+          <td><%= note.body %></td>
+          <td><%= link_to 'Show', note %>||
+            <%= link_to 'Edit', edit_note_path(note) %>||
+            <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' }  %>
+          </td>
+        </tr>
+      <% end %>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
