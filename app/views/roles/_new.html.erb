@@ -4,7 +4,7 @@
 </div>
 <div class="modal-body">
   <div class="form-group">
-  	
+
   <h2>Add a User </h2>
   <%= form_with scope: :role, url: roles_path do |form| %>
   <p>
@@ -14,7 +14,6 @@
   <p>
     <%= form.select :role, options_for_select([["Select One", ""], "Contributor", "Reader"])%>
 
-    <%#select_tag "role", raw("<option>Contributor</option><option>Reader</option>")%>
   </p>
   <p><%= form.hidden_field :note_id ,:value => params[:note] %></p>	
   <p>
