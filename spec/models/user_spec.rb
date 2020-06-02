@@ -24,14 +24,14 @@ RSpec.describe User, type: :model do
 
   describe '#first_name' do
     it 'returns the first_name of the user' do
-      wick = FactoryGirl.create(:user, name: 'John Wick')
+      wick = FactoryBot.create(:user, name: 'John Wick')
       expect(wick.first_name).to eq('John')
     end
   end
 
   describe '#last_name' do
     it 'returns the last_name of the user' do
-      wick = FactoryGirl.create(:user, name: 'John Wick')
+      wick = FactoryBot.create(:user, name: 'John Wick')
       expect(wick.last_name).to eq('Wick')
     end
   end
