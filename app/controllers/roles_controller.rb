@@ -9,16 +9,49 @@ class RolesController < ApplicationController
   end
 
   def create
-    @role = Role.new
-    @role.user = User.where(name: role_params[:name]).first
-    @role.note = Note.find(role_params[:note_id])
-    @role.role = role_params[:role]
-    redirect_to "/notes/#{role_params[:note_id]}" if @role.save!
+    @role = pre_create
+    response_on_save(@role)
+  end
+
+  def destroy
+    @role = Role.find(params[:id])
+    @note_id = @role.note_id
+    @role.destroy
+    post_destroy(@note_id)
   end
 
   private
 
   def role_params
     params.require(:role).permit(:name, :role, :note_id)
+  end
+
+  def post_destroy(note_id)
+    respond_to do |format|
+      format.html do
+        redirect_to "/notes/#{note_id}", notice: 'Role was destroyed'
+      end
+      format.json { head :no_content }
+    end
+  end
+
+  def pre_create
+    @role = Role.new
+    @role.user = User.where(name: role_params[:name]).first
+    @role.note = Note.find(role_params[:note_id])
+    @role.role = role_params[:role]
+    @role
+  end
+
+  def response_on_save(role)
+    respond_to do |format|
+      if role.save
+        format.html do
+          redirect_to "/notes/#{role_params[:note_id]}", notice: 'Role created'
+        end
+      else
+        format.html { render '' }
+      end
+    end
   end
 end
