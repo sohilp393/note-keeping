@@ -1,7 +1,7 @@
 # Performs CRUD operation on notes table
 # It was generated with scaffold generator
 class NotesController < ApplicationController
-  before_action :find_note, only: [:show, :edit, :update, :destroy]
+  before_action :find_note, only: %i(show edit update destroy)
   layout 'note'
 
   def index
@@ -21,15 +21,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user = current_user
-    respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was created' }
-        format.json { render :show, status: :created, location: @note }
-      else
-        format.html { render :new }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
+    pre_create(@note)
   end
 
   def update
@@ -62,5 +54,17 @@ class NotesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def note_params
     params.require(:note).permit(:title, :body)
+  end
+
+  def pre_create(note)
+    respond_to do |format|
+      if note.save
+        format.html { redirect_to note, notice: 'Note was created' }
+        format.json { render :show, status: :created, location: note }
+      else
+        format.html { render :new }
+        format.json { render json: note.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
