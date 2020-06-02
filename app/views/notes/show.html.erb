@@ -4,7 +4,6 @@
   <p>
     <%= @note.body %>
   </p>
-
     
 <% if @note.user == current_user %>
   <%= link_to 'Add User', new_role_path(:note => @note ),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'}  %>
