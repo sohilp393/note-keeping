@@ -1,5 +1,5 @@
-<%= render "createdby", @allnotes_hash["createdby"] %></br>
+<%= render 'created_notes',collection: @created_notes %></br>
 
-<%= render "reader", @allnotes_hash["reader"] %></br> 
+<%= render 'reader', locals: {contributor_notes: @contributor_notes } %></br> 
 
-<%= render "contributor", @allnotes_hash["contributor"] %>
+<%= render 'contributor', locals: {reader_notes: @reader_notes } %>
