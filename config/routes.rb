@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :roles
 
-  get 'dashboard' ,to:'dashboard#allnotes'
+  get 'dashboard', to: 'dashboard#index'
 
   root to: 'pages#home'
 end
