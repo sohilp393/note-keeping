@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_075437) do
+ActiveRecord::Schema.define(version: 2020_06_03_120022) do
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2020_05_28_075437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "notes_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "note_id", null: false
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id", "user_id"], name: "index_notes_users_on_note_id_and_user_id"
+    t.index ["user_id", "note_id"], name: "index_notes_users_on_user_id_and_note_id"
   end
 
   create_table "roles", force: :cascade do |t|
