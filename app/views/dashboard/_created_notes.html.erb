@@ -9,7 +9,7 @@
          <th>Body</th> 
          <th>Action</th> 
       </tr>
-      <% @allnotes_hash["Createdby"].each do |note| %>
+      <% @created_notes.each do |note| %>
         <tr>
           <td><%= note.title %></td>
           <td><%= truncate(note.body, length: 125) %></td>
