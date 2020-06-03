@@ -1,4 +1,4 @@
-#  Roles-Controller
+=begin#  Roles-Controller
 class RolesController < ApplicationController
   layout 'dashboard'
   def new
@@ -55,3 +55,4 @@ class RolesController < ApplicationController
     end
   end
 end
+=end
