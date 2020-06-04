@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   layout 'note'
 
   def index
-    @notes = Note.where(user: current_user).page(params[:page]).per(5)
+    @notes = Note.where(user_id: current_user.id).page(params[:page]).per(5)
   end
 
   def show
