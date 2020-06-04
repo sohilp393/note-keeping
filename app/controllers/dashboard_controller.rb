@@ -1,10 +1,9 @@
-# Dash-Board  Controller
+# frozen_string_literal: true
 class DashboardController < ApplicationController
-  def allnotes
-    @created_notes = Note.where(user_id: current_user.id)
-    @contributor_notes = Role.where(
-      user_id: current_user.id,
-      role: 'Contributor')
-    @reader_notes = Role.where(user_id: current_user.id, role: 'Reader')
+  def index
+    current_user_id = current_user.id
+    @created_notes = Note.where(user: current_user)
+    @contributor_role_notes = User.contributor_role_notes(current_user_id)
+    @reader_role_notes = User.reader_role_notes(current_user_id)
   end
 end
