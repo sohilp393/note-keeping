@@ -1,3 +1,5 @@
+# The concern is used to add customize attributes
+# to the devise controller.
 module DeviseWhitelist
   extend ActiveSupport::Concern
 
