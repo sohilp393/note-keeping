@@ -1,5 +1,4 @@
-# The concern is used to add customize attributes
-# to the devise controller.
+# # frozen_string_literal: true
 module DeviseWhitelist
   extend ActiveSupport::Concern
 

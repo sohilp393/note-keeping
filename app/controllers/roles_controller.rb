@@ -1,4 +1,4 @@
-#  Roles-Controller
+# frozen_string_literal: true
 class RolesController < ApplicationController
   layout 'dashboard'
   def new

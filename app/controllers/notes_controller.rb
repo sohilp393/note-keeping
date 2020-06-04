@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 # Performs CRUD operation on notes table
-# It was generated with scaffold generator
 class NotesController < ApplicationController
   before_action :find_note, only: %i(show edit update destroy)
   layout 'note'
@@ -9,6 +9,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @contributor_notes = Note.contributor_role_users(params[:id])
   end
 
   def new

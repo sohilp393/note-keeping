@@ -1,4 +1,4 @@
-# Displays the content for dafault page
+# frozen_string_literal: true
 module DefaultPageContent
   extend ActiveSupport::Concern
 
