@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: notes
@@ -13,4 +14,12 @@ class Note < ApplicationRecord
   has_many :users, through: :roles, dependent: :delete_all
 
   validates :title, presence: true, length: { in: 3..50 }
+
+  def self.contributor_role_users(note_id)
+    Note.find(note_id).roles.where(role: 'Contributor')
+  end
+
+  def self.reader_role_users(note_id)
+    Note.find(note_id).roles.where(role: 'Reader')
+  end
 end

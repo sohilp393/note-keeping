@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: users
@@ -19,5 +20,13 @@ class User < ApplicationRecord
 
   def last_name
     name.split.last
+  end
+
+  def self.contributor_role_notes(user_id)
+    User.find(user_id).roles.where(role: 'Reader')
+  end
+
+  def self.reader_role_notes(user_id)
+    User.find(user_id).roles.where(role: 'Reader')
   end
 end
