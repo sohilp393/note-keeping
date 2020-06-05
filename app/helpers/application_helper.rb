@@ -1,4 +1,4 @@
-# Helper methods
+# frozen_string_literal: true
 module ApplicationHelper
   def login_helper(style)
     if current_user.is_a?(User)
