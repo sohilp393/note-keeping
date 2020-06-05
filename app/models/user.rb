@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def self.contributor_role_notes(user_id)
-    User.find(user_id).roles.where(role: 'Reader')
+    User.find(user_id).roles.where(role: 'Contributor')
   end
 
   def self.reader_role_notes(user_id)
