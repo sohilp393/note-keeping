@@ -1,33 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 note-main">
+	<%= paginate @notes %>
+	
+  <%= render @notes %>
 
-<h1>Notes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.title %></td>
-        <td><%= note.body %></td>
-        <td><%= note.user.name %></td>
-    <%if note.user == current_user %>    
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Note', new_note_path %>
+  <%= paginate @notes %>
+</div>

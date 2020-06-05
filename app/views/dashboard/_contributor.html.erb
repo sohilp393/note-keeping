@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-md-4">
+      <h2>Contributor Notes</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+        <tr>
+         <th>Title</th>
+         <th>Body</th>
+         <th>Created_by</th>
+         <th>Action</th> 
+      </tr>
+      <% @contributor_role_notes.each do |role| %>
+        <tr>
+          <td><%= role.note.title %></td>
+          <td><%= truncate(role.note.body, length: 110) %></td>
+          <td><%= role.note.user.name%></td>
+          <td><%= link_to 'Show', role.note %>||
+            <%= link_to 'Edit', edit_note_path(role.note) %>
+          </td>
+        </tr>
+      <% end %>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

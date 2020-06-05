@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: notes
@@ -7,11 +8,13 @@
 #  user_id           :integer(4)
 #  created_at        :datetime
 #  updated_at        :datetime
+#
 class Note < ApplicationRecord
   belongs_to :user
   has_many :roles
   has_many :users, through: :roles, dependent: :delete_all
 
-  validates :title, presence: true, length: { mininmum: 3, maximum: 50 }
-  validates :body, presence: true, length: { mininmum: 10, maximum: 50 }
+  validates :title, presence: true, length: { in: 3..50 }
+
+  scope :users_roles, -> (note_id) { Note.find(note_id).roles }
 end

@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Add Users</h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+
+<div class="modal-body">
+  <div class="form-group">
+  <%= form_with scope: :role, url: roles_path do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.collection_select :user_id, User.where.not(id: current_user.id), :id, :name, prompt: true%>
+  </p>
+  <p>
+    <%= form.label :role %><br>
+    <%= form.select :role, options_for_select([["Select One", ""], "Contributor", "Reader"]), required: true%>
+  </p>
+  <p><%= form.hidden_field :note_id ,:value => params[:note] %></p>	
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>
+  </div>
+</div>

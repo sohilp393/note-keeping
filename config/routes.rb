@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   resources :notes do
   end
 
+  resources :roles
+
+  get 'dashboard', to: 'dashboard#index'
+
   root to: 'pages#home'
 end

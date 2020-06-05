@@ -1,13 +1,15 @@
+# frozen_string_literal: true
 # Performs CRUD operation on notes table
-# It was generated with scaffold generator
 class NotesController < ApplicationController
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :find_note, only: %i(show edit update destroy)
+  layout 'note'
 
   def index
-    @notes = Note.all
+    @notes = Note.where(user: current_user).page(params[:page]).per(5)
   end
 
   def show
+    @user_roles = Note.users_roles(params[:id])
   end
 
   def new
@@ -20,26 +22,16 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user = current_user
-
-    respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render :show, status: :created, location: @note }
-      else
-        format.html { render :new }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
+    pre_create(@note)
   end
 
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+        format.html { redirect_to @note, notice: 'Note was updated' }
+        # format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,20 +39,31 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to notes_url, notice: 'Note was destroyed' }
     end
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_note
+  def find_note
     @note = Note.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to notes_url
   end
 
   # Only allow a list of trusted parameters through.
   def note_params
     params.require(:note).permit(:title, :body)
+  end
+
+  def pre_create(note)
+    respond_to do |format|
+      if note.save
+        format.html { redirect_to note, notice: 'Note was created' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 end
