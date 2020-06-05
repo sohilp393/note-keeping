@@ -14,19 +14,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :notes_roles, lambda { |user_id, role|
+    User.find(user_id).roles.where(role: role)
+  }
+
   def first_name
     name.split.first
   end
 
   def last_name
     name.split.last
-  end
-
-  def self.contributor_role_notes(user_id)
-    User.find(user_id).roles.where(role: 'Contributor')
-  end
-
-  def self.reader_role_notes(user_id)
-    User.find(user_id).roles.where(role: 'Reader')
   end
 end

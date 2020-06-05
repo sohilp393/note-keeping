@@ -15,15 +15,5 @@ class Note < ApplicationRecord
 
   validates :title, presence: true, length: { in: 3..50 }
 
-  def self.contributor_role_users(note_id)
-    Note.find(note_id).roles.where(role: 'Contributor')
-  end
-
-  def self.reader_role_users(note_id)
-    Note.find(note_id).roles.where(role: 'Reader')
-  end
-
-  def self.user_roles(note_id)
-    Note.find(note_id).roles
-  end
+  scope :users_roles, -> (note_id) { Note.find(note_id).roles }
 end
