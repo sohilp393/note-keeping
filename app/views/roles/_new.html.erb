@@ -4,14 +4,14 @@
 </div>
 <div class="modal-body">
   <div class="form-group">
-  <h2>Add a User </h2>
   <%= form_with scope: :role, url: roles_path do |form| %>
   <p>
-    <%= form.label :Name %><br>
-    <%= form.text_field :name ,required: true %>
+    <%= form.label :name %><br>
+    <%= form.collection_select :user_id, User.where.not(id: current_user.id), :id, :name, prompt: true%>
   </p>
   <p>
-    <%= form.select :role, options_for_select([["Select One", ""], "Contributor", "Reader"])%>
+    <%= form.label :role %><br>
+    <%= form.select :role, options_for_select([["Select One", ""], "Contributor", "Reader"]), required: true%>
   </p>
   <p><%= form.hidden_field :note_id ,:value => params[:note] %></p>	
   <p>
