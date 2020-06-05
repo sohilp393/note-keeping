@@ -126,16 +126,6 @@ h6, .h6 {
   margin-bottom: 0;
 }
 
-
-/* Pagination */
-.note-pagination {
-  margin-bottom: 4rem;
-}
-.note-pagination > .btn {
-  border-radius: 2rem;
-}
-
-
 /*
  * Note posts
  */
@@ -174,4 +164,9 @@ h6, .h6 {
 
 .social-links li{
   font-size: 1.5em;
+}
+
+.nav-login-user{
+  color: black;
+  padding-top: 10px;
 }
