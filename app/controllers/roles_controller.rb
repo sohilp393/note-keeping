@@ -31,7 +31,6 @@ class RolesController < ApplicationController
       format.html do
         redirect_to "/notes/#{note_id}", notice: 'Role was destroyed'
       end
-      format.json { head :no_content }
     end
   end
 
@@ -45,13 +44,10 @@ class RolesController < ApplicationController
 
   def response_on_save(role)
     respond_to do |format|
-      debugger
-      if role.save 
+      if role.save
         format.html do
           redirect_to "/notes/#{role_params[:note_id]}", notice: 'Role created'
         end
-      else
-        format.html { render '' }
       end
     end
   end
