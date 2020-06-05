@@ -23,7 +23,7 @@ class RolesController < ApplicationController
   private
 
   def role_params
-    params.require(:role).permit(:name, :role, :note_id)
+    params.require(:role).permit(:user_id, :role, :note_id)
   end
 
   def post_destroy(note_id)
@@ -37,7 +37,7 @@ class RolesController < ApplicationController
 
   def pre_create
     @role = Role.new
-    @role.user = User.where(name: role_params[:name]).first
+    @role.user = User.find(role_params[:user_id])
     @role.note = Note.find(role_params[:note_id])
     @role.role = role_params[:role]
     @role
@@ -45,7 +45,8 @@ class RolesController < ApplicationController
 
   def response_on_save(role)
     respond_to do |format|
-      if role.save
+      debugger
+      if role.save 
         format.html do
           redirect_to "/notes/#{role_params[:note_id]}", notice: 'Role created'
         end
