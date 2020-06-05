@@ -10,7 +10,7 @@
          <th>Created_by</th>
          <th>Action</th> 
       </tr>
-      <% @contributor_notes.each do |role| %>
+      <% @contributor_role_notes.each do |role| %>
         <tr>
           <td><%= role.note.title %></td>
           <td><%= truncate(role.note.body, length: 110) %></td>
