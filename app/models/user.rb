@@ -2,6 +2,21 @@
 # == Schema Information
 #
 # Table name: users
+#  id                       :integer(4)      not null, primary key
+#  email                    :string(255)
+#  encrypted_password       :string(255)
+#  name                     :string(255)
+#  reset_password_token     :string(255)
+#  reset_password_sent_at   :datetime
+#  remember_created_at      :datetime
+#  sign_in_count            :integer(4)
+#  current_sign_in_at       :datetime
+#  last_sign_in_at          :datetime
+#  current_sign_in_ip       :string(255)
+#  last_sign_in_ip          :string(255)
+#  created_at               :datetime
+#  updated_at               :datetime
+#
 class User < ApplicationRecord
   has_many :roles
   has_many :notes, through: :roles, dependent: :delete_all

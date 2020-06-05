@@ -8,6 +8,7 @@
 #  user_id           :integer(4)
 #  created_at        :datetime
 #  updated_at        :datetime
+#
 class Note < ApplicationRecord
   belongs_to :user
   has_many :roles
