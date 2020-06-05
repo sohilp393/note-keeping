@@ -9,7 +9,7 @@ class NotesController < ApplicationController
   end
 
   def show
-    @contributor_notes = Note.contributor_role_users(params[:id])
+    @user_roles = Note.users_roles(params[:id])
   end
 
   def new
