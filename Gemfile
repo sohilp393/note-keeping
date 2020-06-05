@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'rubocop', '~> 0.39.0'
+gem 'rubocop', '~> 0.48.1'
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
