@@ -1,5 +1,4 @@
-# Application-Controller- any method written in this
-# controller is avaliable to all the controllers.
+# frozen_string_literal: true
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include DeviseWhitelist
